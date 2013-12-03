@@ -1,0 +1,103 @@
+/* Redefine
+---------------------------------------------------------------------------------------- //// */
+
+html {
+	overflow-y: scroll;
+	background: #fff;
+	-ms-text-size-adjust:     100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	color: $fontColor;
+	font: 300 #{$fontSize}/#{$lineHeight} $fontMerriweather;
+
+	@include media($XXL) {
+		overflow: hidden;
+		min-width: 960px;
+		font-size: 25px; // TODO - use ems
+		line-height: 33px; // TODO - use ems
+	}
+}
+
+/* links ----------------------------------------------- //// */
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+	color: blue;
+	text-decoration: underline;
+}
+
+/* media ----------------------------------------------- //// */
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+/* image ----------------------------------------------- */
+
+.image-rwd span {
+	display: none;
+}
+
+/* hidden ----------------------------------------- //// */
+/*
+1. Hide for both screenreaders and browsers
+		css-discuss.incutio.com/wiki/Screenreader_Visibility
+2. Hide only visually, but have it available for screenreaders
+		by Jon Neal
+		www.webaim.org/techniques/css/invisiblecontent/
+		j.mp/visuallyhidden
+3. Extends the .hidden_visually class to allow the element to be focusable when navigated to via the keyboard
+		(was ".visuallyhidden")
+		drupal.org/node/897638
+4. Hide visually and from screenreaders, but maintain layout
+*/
+
+/* 1 */
+%hidden {
+	display: none;
+	visibility: hidden;
+}
+
+/* 2 */
+%hidden-visually {
+	position: absolute;
+	overflow: hidden;
+	margin: -1px;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	border: 0;
+	clip: rect(0 0 0 0);
+
+	/* 3 */
+	&:focus,
+	&:active {
+		position: static;
+		overflow: visible;
+		clip: auto;
+		margin: 0;
+		width: auto;
+		height: auto;
+	}
+}
+
+/* 4 */
+%invisible {
+	visibility: hidden;
+}
+
+/* misc ------------------------------------------- //// */
+
+strong {
+	font-weight: bold;
+}
+
+em,
+i {
+	font-style: italic;
+}

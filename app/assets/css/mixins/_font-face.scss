@@ -1,0 +1,9 @@
+// TODO - add this to FRWD
+
+@mixin font-face($family, $file, $svg) {
+	font-family: '#{$family}';
+	src: url('#{$file}.eot?#iefix') format('embedded-opentype'),
+		 url('#{$file}.woff') format('woff'),
+		 url('#{$file}.ttf')  format('truetype'),
+		 url('#{$file}.svg##{$svg}') format('svg');
+}

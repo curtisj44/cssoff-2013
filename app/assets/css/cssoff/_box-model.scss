@@ -1,0 +1,99 @@
+/* box-model
+---------------------------------------------------------------------------------------- //// */
+
+.box-model {
+	@extend .region;
+	padding: 1em $contentPadding 2.2em;
+	border: 1px solid #e5e5e5;
+	border-width: 1px 0;
+
+	@include media($S) {
+		padding: 0 $contentPadding 1em 167px;
+	}
+
+	@include media($XL) {
+		@include region-size(1/3);
+		@include region-order(2/3, pull);
+		padding: $contentPadding;
+		border: 0;
+	}
+
+	@include media($XXL) {
+		@include region-size(5/12);
+		@include region-order(7/12, pull);
+		padding: 0;
+	}
+}
+
+.box-model-barbie {
+	display: block;
+	position: relative;
+	margin: -40px auto 0;
+	text-align: center;
+
+	@include media($S) {
+		float: left;
+		margin: 1em 0 0 -143px;
+	}
+
+	@include media($XL) {
+		float: none;
+		margin: 0;
+		text-align: left;
+	}
+
+	@include media($XXL) {
+		top: -5px;
+		left: -57px;
+
+		&:after,
+		&:before {
+			position: absolute;
+			top: 271px;
+			left: 8px;
+			width: 165px;
+			height: 20px;
+			@include border-radius(.7em);
+			@include box-shadow(7px 0 6px 6px rgba(120, 100, 100, .8));
+			background: rgba(0, 0, 0, .3);
+			content: '';
+			@include transform(rotate(-.55deg));
+		}
+
+		&:before {
+			top: 294px;
+			left: 168px;
+			@include transform(rotate(-.2deg));
+		}
+	}
+
+	img {
+		position: relative;
+		z-index: 4;
+	}
+}
+
+.box-model {
+	h1 {
+		padding: .5em 0 .25em;
+		color: #5f5d66;
+		font: 700 italic 36px/1 $fontLora; // TODO - add better font stack, use ems
+
+		@include media($XXL) {
+			padding: 15px 0 14px 3px; // TODO - use ems
+			text-align: center;
+		}
+	}
+
+	p {
+		color: #6e6c77;
+		font: 400 19px/27px $fontLato; // TODO - add better font stack, use ems
+		letter-spacing: -.019em;
+
+		@include media($XXL) {
+			max-width: 367px;
+			padding: 0 0 0 19px;
+			text-align: center;
+		}
+	}
+}

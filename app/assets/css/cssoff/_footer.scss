@@ -1,0 +1,65 @@
+/* footer
+---------------------------------------------------------------------------------------- //// */
+
+footer {
+	padding: 0 0 .75em;
+	border-top: 1px solid #e5e5e5;
+
+	@include media($M) {
+		&.fields {
+			padding: 16px 0 56px; // TODO - use ems
+		}
+	}
+
+	p {
+		@extend .region;
+		margin: 0 0 .5em;
+		padding: .5em $contentPadding;
+		border-bottom: 1px solid #e5e5e5;
+		color: #8c8c8c;
+		font: 17px/26px $fontLato; // TODO - use ems
+		letter-spacing: -.025em;
+
+		@include media($M) {
+			@include region-size(1/2);
+			margin: 0;
+			padding: 0 $contentPadding;
+			border: 0;
+		}
+
+		@include media($XXL) {
+			padding: 0;
+		}
+
+		b {
+			color: #000;
+		}
+	}
+
+	.contact {
+		@extend .region;
+		padding: 0 $contentPadding;
+		color: #989898;
+		font: 300 13px/19px $fontMerriweather; // TODO - use ems
+		letter-spacing: -.01em;
+
+		@include media($M) {
+			@include region-size(1/2);
+			padding-top: 6px;
+			text-align: right;
+		}
+
+		@include media($XXL) {
+			padding-right: 0;
+			padding-left: 0;
+		}
+
+		b {
+			font-weight: 900;
+		}
+	}
+
+	[itemprop="streetAddress"] {
+		display: block;
+	}
+}

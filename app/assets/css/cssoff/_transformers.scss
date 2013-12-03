@@ -1,0 +1,326 @@
+/* transformers
+---------------------------------------------------------------------------------------- //// */
+
+$borderSolid: #3476a8;
+
+%border-dotted {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background:    -moz-repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 5px, rgba(0, 0, 0, 0) 11px, rgba(0, 0, 0, .4) 5px, rgba(0, 0, 0, .4) 22px);
+	background: -webkit-repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 5px, rgba(0, 0, 0, 0) 11px, rgba(0, 0, 0, .4) 5px, rgba(0, 0, 0, .4) 22px);
+	background:         repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 5px, rgba(0, 0, 0, 0) 11px, rgba(0, 0, 0, .4) 5px, rgba(0, 0, 0, .4) 22px);
+	content: '';
+}
+
+.transformers {
+	@extend .region;
+	position: relative;
+	z-index: 1;
+	background: #3a83bb;
+	color: #fff;
+	font: 1em/1 $fontOswald;
+	text-transform: uppercase;
+
+	@include media($XXL) {
+		@include region-size(3/12);
+		left: 15px;
+		margin: 15px 0 0;
+		max-width: 225px;
+	}
+
+	@if $fixedWidth == false {
+		&:after {
+			display: block;
+			position: absolute;
+			bottom: -12px;
+			left: 50%;
+			margin: 0 0 0 -13px;
+			width: 26px;
+			height: 24px;
+			@include border-radius(100%);
+			background: #fff;
+			content: '';
+		}
+	}
+
+	img {
+		display: block;
+		margin: -40px auto 0;
+
+		@include media($S) {
+			position: relative;
+			z-index: 1;
+			float: left;
+			margin-right: 4%;
+			margin-left: 4%;
+			max-width: 40%; // TODO - use picturefill to replace image, instead of resizing it
+		}
+
+		@include media($M) {
+			max-width: none;
+		}
+
+		@include media($XXL) {
+			display: inline;
+			float: none;
+			margin: -66px 0 0 22px; // TODO - use ems?
+		}
+	}
+
+	header {
+		position: relative;
+		padding: 0 4% 24px; // TODO - use ems
+
+		@include media($S) {
+			min-height: 192px;
+		}
+
+		@include media($XXL) {
+			padding-right: 13px; // TODO - use ems
+			padding-left: 13px; // TODO - use ems
+			min-height: 0;
+		}
+
+		&:after {
+			@extend %border-dotted;
+		}
+
+		p[itemprop] {
+			padding: 15px 0 0 2px;
+			border-top: 8px solid #619cc9;
+			font: italic 16px/24px $fontLora; // TODO - use ems
+			letter-spacing: -.02em;
+			text-transform: none;
+
+			@include media($XXL) {
+				max-width: 191px;
+			}
+		}
+	}
+
+	h1 {
+		position: relative;
+		padding: 20px 0 12px; // TODO - use ems
+		font-size: 31px; // TODO - use ems
+		line-height: 30px; // TODO - use ems
+		text-align: center;
+
+		@include media($S) {
+			text-align: left;
+		}
+
+		@include media($XXL) {
+			text-align: center;
+		}
+
+		span {
+			display: block;
+			margin-left: -4px;
+			font-size: 21px; // TODO - use ems
+
+			@include media($XXL) {
+				display: inline;
+			}
+		}
+	}
+}
+
+.transformers-rating {
+	position: relative;
+	float: left;
+	padding: 10px 0 48px;
+	width: 100%;
+	border: 5px solid $borderSolid;
+	border-width: 5px 0;
+
+	@include media($S) {
+		padding-top: 11px;
+		width: 50%;
+		border-bottom-width: 0;
+	}
+
+	@include media($XXL) {
+		padding-top: 10px;
+		width: 100%;
+		border-bottom-width: 5px;
+	}
+
+	&:after {
+		@extend %border-dotted;
+		bottom: -5px;
+
+		@include media($S) {
+			display: none;
+		}
+
+		@include media($XXL) {
+			display: block;
+		}
+	}
+
+	h2 {
+		float: left;
+		padding: 0 0 0 5%;
+		width: 45%;
+		color: #75a8d0;
+		font-size: 14px; // TODO - use ems
+		line-height: 26px; // TODO - use ems
+
+		@include media($S) {
+			width: 90%;
+			text-align: center;
+		}
+
+		@include media($XXL) {
+			padding-left: 5.333333%;
+			width: 43.555556%;
+			text-align: left;
+		}
+	}
+
+	b {
+		display: block;
+		margin-left: -1px;
+		font-size: 32px; // TODO - use ems
+
+		@include media($S) {
+			display: inline;
+			font-size: 1em;
+		}
+
+		@include media($XXL) {
+			display: block;
+			font-size: 32px; // TODO - use ems
+		}
+	}
+
+	strong {
+		float: left;
+		padding: 2px 0 0 5%;
+		width: 45%;
+		font-size: 54px; // TODO - use ems
+		font-weight: normal;
+
+		@include media($S) {
+			width: 90%;
+			text-align: center;
+		}
+
+		@include media($XXL) {
+			padding-left: 0;
+			width: 51.111111%;
+			text-align: left;
+		}
+
+		&:before,
+		&:after {
+			display: block;
+			position: absolute;
+			right: 8%;
+			bottom: 24px;
+			left: 8%;
+			height: 8px;
+			background: #619cc9;
+			content: '';
+
+			@include media($XXL) {
+				right: 9%;
+				left: 5.5%;
+			}
+		}
+
+		&:after {
+			width: 20%;
+			background: #fff;
+		}
+	}
+
+	span {
+		display: inline-block;
+		position: relative;
+		top: -2px;
+		left: -2px;
+		font-size: 49px;
+		font-weight: 400
+	}
+}
+
+.transformers-event {
+	position: relative;
+	clear: both;
+	margin: 0 auto;
+	padding: 22px 0 27px; // TODO - use ems
+	width: 92%;
+	font-size: 14px; // TODO - use ems
+	line-height: 18px; // TODO - use ems
+	text-align: center;
+
+	@include media($S) {
+		float: left;
+		clear: none;
+		width: 50%;
+		border-top: 5px solid $borderSolid;
+	}
+
+	@include media($XXL) {
+		float: none;
+		clear: both;
+		padding-right: 10px;
+		padding-left: 10px;
+		width: auto;
+		border: 0;
+	}
+
+	&:after {
+		@extend %border-dotted;
+		display: none;
+
+		@include media($S) {
+			display: block;
+			top: -5px;
+			width: 2px;
+			height: 100%;
+			background:    -moz-repeating-linear-gradient(0deg, rgba(0, 0, 0, 0) 5px, rgba(0, 0, 0, 0) 11px, rgba(0, 0, 0, .4) 5px, rgba(0, 0, 0, .4) 22px);
+			background: -webkit-repeating-linear-gradient(0deg, rgba(0, 0, 0, 0) 5px, rgba(0, 0, 0, 0) 11px, rgba(0, 0, 0, .4) 5px, rgba(0, 0, 0, .4) 22px);
+			background:         repeating-linear-gradient(0deg, rgba(0, 0, 0, 0) 5px, rgba(0, 0, 0, 0) 11px, rgba(0, 0, 0, .4) 5px, rgba(0, 0, 0, .4) 22px);
+		}
+
+		@include media($XXL) {
+			display: none;
+		}
+	}
+
+	h2 {
+		position: relative;
+		color: #88aed1;
+		line-height: 12px;
+		text-align: center;
+		background: #619cc9;
+
+		b {
+			padding: 0 1em;
+			background: #3c81b8;
+		}
+	}
+
+	[itemprop="address"] [itemprop="name"] {
+		font-size: 27px; // TODO - use ems
+		line-height: 40px; // TODO - use ems
+	}
+
+	[itemprop="addressRegion"] {
+		color: #88aed1;
+		font-size: 28px; // TODO - use ems
+		line-height: 28px; // TODO - use ems
+	}
+
+	span {
+		display: block;
+		font-size: 39px; // TODO - use ems
+		line-height: 45px; // TODO - use ems
+	}
+}

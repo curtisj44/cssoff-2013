@@ -1,0 +1,170 @@
+/* positioning-relatives
+---------------------------------------------------------------------------------------- //// */
+
+.positioning-relatives {
+	@extend .region;
+	position: relative;
+
+	@include media($XL) {
+		@include region-size(2/3);
+		@include region-order(1/3, push);
+	}
+
+	@include media($XXL) {
+		@include region-size(7/12);
+		@include region-order(5/12, push);
+		padding: 0;
+	}
+
+	&:after {
+		@include media($XL) {
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 1px;
+			height: 620px;
+			background: #e5e5e5;
+			content: '';
+		}
+
+		@include media($XXL) {
+			display: none;
+		}
+	}
+
+	header,
+	p {
+		position: relative;
+		padding: 0 $contentPadding;
+		z-index: 1;
+
+		@include media($XL) {
+			padding: 0 7%;
+		}
+
+		@include media($XXL) {
+			padding: 0 0 0 53px;
+		}
+	}
+
+	h1 {
+		margin: 0 3px -1px;
+		padding-top: 1.5em;
+		color: #cbb8a0;
+		font: bold 13px/21px $fontMerriweather; // TODO - use ems
+		text-transform: uppercase;
+		letter-spacing: .17em;
+
+		@include media($XXL) {
+			padding-top: 82px; // TODO - use ems?
+
+			&:after,
+			&:before {
+				display: block;
+				position: absolute;
+				z-index: -1;
+				top: 135px;
+				left: 20px;
+				width: 120px;
+				height: 59px;
+				@include border-radius(10px);
+				@include box-shadow(0 0 30px 30px rgba(0, 0, 0, .3));
+				background: rgba(0, 0, 0, .3);
+				content: '';
+			}
+
+			&:before {
+				top: 259px;
+				left: -77px;
+				width: 347px;
+				height: 1px;
+				@include border-radius(100%);
+				@include box-shadow(0 0 15px 16px rgba(0, 0, 0, .2));
+				background: rgba(0, 0, 0, .2);
+			}
+		}
+	}
+
+	h2 {
+		margin: 0 0 18px; // TODO - use ems?
+		color: #fdcd84;
+		font: 40px/43px $fontOswald; // TODO - use @font-face, use ems
+		text-transform: uppercase;
+
+		@include media($XS) {
+			font-size: 48px; // TODO - use ems
+			line-height: 52px; // TODO - use ems
+		}
+
+		@include media($XXL) {
+			font-size: 75px; // TODO - use ems
+			line-height: 79px; // TODO - use ems
+
+			&:after,
+			&:before {
+				display: block;
+				position: absolute;
+				z-index: -1;
+				top: 165px;
+				left: 40px;
+				width: 200px;
+				height: 59px;
+				@include border-radius(10px);
+				@include box-shadow(0 0 30px 30px rgba(0, 0, 0, .5));
+				background: rgba(0, 0, 0, .5);
+				content: '';
+				@include transform(rotate(-6deg));
+			}
+
+			&:before {
+				top: 139px;
+				width: 302px;
+				height: 10px;
+			}
+		}
+	}
+
+	img {
+		@include box-sizing(border-box);
+		padding: 5px;
+		width: 100%;
+		border-top: 1px solid rgba(0, 0, 0, .2);
+		border-bottom: 1px solid rgba(0, 0, 0, .1);
+		background: #f8f2e1 url(../images//paper.jpg) repeat 0 0;
+
+		@include media($M) {
+			padding: 8px;
+		}
+
+		@include media($XL) {
+			position: relative;
+			z-index: 1;
+			top: -5px;
+			left: -16px;
+			border-right: 1px solid rgba(0, 0, 0, .1);
+			border-left: 1px solid rgba(0, 0, 0, .1);
+			@include transform(rotate(-2.5deg));
+		}
+
+		@include media($XXL) {
+			position: absolute;
+			z-index: 1;
+			top: -262px;
+			left: -63px;
+			width: auto;
+			max-width: none;
+			border: 0;
+			@include transform(rotate(-3.85deg));
+		}
+	}
+
+	p {
+		padding-bottom: 34px;
+		letter-spacing: -.019em;
+
+		@include media($XXL) {
+			width: 519px;
+		}
+	}
+}

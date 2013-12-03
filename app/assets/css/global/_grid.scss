@@ -1,0 +1,51 @@
+/* Grid
+---------------------------------------------------------------------------------------- //// */
+
+/* head ----------------------------------------------- //// */
+head {
+	@include media($XXS) {font-family:'/XXS'}
+	@include media($XS)  {font-family:'/XXS/XS'}
+	@include media($S)   {font-family:'/XXS/XS/S'}
+	@include media($M)   {font-family:'/XXS/XS/S/M'}
+	@include media($L)   {font-family:'/XXS/XS/S/M/L'}
+	@include media($XL)  {font-family:'/XXS/XS/S/M/L/XL'}
+	@include media($XXL)  {font-family:'/XXS/XS/S/M/L/XL/XXL'}
+}
+
+/* fields ----------------------------------------------- //// */
+.fields {
+	clear: both;
+	margin: 0 auto;
+	max-width: $maxWidth;
+
+	@include media($XXL) {
+		padding: 0;
+		width: 97%;
+	}
+
+	.ie7 & {
+		zoom: 1;
+	}
+
+	&:before,
+	&:after {
+		display: table;
+		content: '';
+	}
+
+	&:after {
+		clear: both;
+	}
+
+	.fields {
+		width: 100%;
+	}
+}
+
+/* region ----------------------------------------------- //// */
+.region {
+	@include box-sizing(border-box);
+	float: left;
+	padding: 0 $gutter/2;
+	width: 100%;
+}

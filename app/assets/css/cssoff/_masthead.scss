@@ -1,0 +1,71 @@
+/* masthead
+---------------------------------------------------------------------------------------- //// */
+
+.masthead {
+	@extend .region;
+	position: relative;
+	text-align: center;
+
+	@include media($XXL) {
+		text-align: left;
+	}
+
+	p {
+		background: darken(#CDC9DD, 20);
+
+		color: #fff;
+		font: italic 12px/22px $fontLora; // TODO - use @font-face, use ems
+		letter-spacing: .197em;
+		text-transform: uppercase;
+
+		@include media($XXL) {
+			position: absolute;
+			top: 127px;
+			right: -1px;
+			background: none;
+			color: #b0aeb8;
+			line-height: 42px; // TODO - use ems
+		}
+	}
+
+	h1 {
+		color: #fff;
+		font: 100 52px/100px $fontLato; // TODO - use ems, add @font-face
+		text-transform: uppercase;
+		word-wrap: break-word;
+
+		@include media($XXS) {
+			font-size: 51px; // TODO - use ems
+			letter-spacing: .1em;
+		}
+
+		@include media($XS) {
+			font-size: 60px; // TODO - use ems
+		}
+
+		@include media($M) {
+			font-size: 76px; // TODO - use ems
+		}
+
+		@include media($XXL) {
+			position: relative;
+			z-index: 2;
+			top: 34px;
+			left: -38px;
+			width: 2.2em;
+			font-size: 279px; // TODO - use ems
+			line-height: 226px; // TODO - use ems
+			letter-spacing: .04em;
+		}
+	}
+
+	@include media($XXL) {
+		span {
+			letter-spacing: -.075em;
+		}
+
+		b {
+			padding: 0 0 0 21px;
+		}
+	}
+}

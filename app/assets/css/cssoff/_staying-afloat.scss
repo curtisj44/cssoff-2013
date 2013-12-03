@@ -1,0 +1,63 @@
+/* staying-afloat
+---------------------------------------------------------------------------------------- //// */
+
+.staying-afloat {
+	@extend .region;
+	position: relative;
+	padding: 1em $contentPadding;
+
+	@include media($S) {
+		padding-left: 167px;
+	}
+
+	@include media($XL) {
+		padding-left: 220px;
+		border-top: 1px solid #e5e5e5;
+	}
+
+	@include media($XXL) {
+		@include region-size(2/12);
+		padding: 0 21px 193px 0;
+		border: 0;
+		text-align: right;
+	}
+
+	h1 {
+	 	margin: 0 0 7px; // TODO - use ems
+		color: #24795a;
+		font: 21px/24px $fontOswald; // TODO - use ems
+		letter-spacing: -.021em;
+	}
+
+	p {
+		color: #464646;
+		font: 14px/19px $fontLato; // TODO - use ems
+		letter-spacing: -.022em;
+
+		@include media($XXL) {
+			float: right;
+			max-width: 121px;
+		}
+	}
+
+	img {
+		display: block;
+		margin: -50px auto .5em;
+
+		@include media($S) {
+			float: left;
+			margin: 0 0 0 -159px;
+		}
+
+		@include media($XL) {
+			margin: -69px 0 0 -177px;
+		}
+
+		@include media($XXL) {
+			position: absolute;
+			left: 5px;
+			bottom: -20px;
+			margin: 0;
+		}
+	}
+}
